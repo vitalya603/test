@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Магазин Обуви</title>
+    <link rel="stylesheet" href="aboba.css">
+    <script>
+        function startTimer(duration, display) {
+            let timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = Math.floor(timer / 60);
+                seconds = timer % 60;
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = 0;
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+            const fiveMinutes = 5 * 60;
+            const display = document.querySelector('#timer');
+            startTimer(fiveMinutes, display);
+        };
+    </script>
+</head>
+<body>
+    <header>
+        <img src="sh.jpg" width="200" height="100" alt="Логотип">
+        <h1>Магазин Обуви</h1>
+        <nav>
+            <ul>
+                <li><a href="#products">Продукты</a></li>
+                <li><a href="#about">О нас</a></li>
+                <li><a href="#contact">Контакты</a></li>
+                <li><a href="#order">Заказ</a></li>
+                <li><a href="#reviews">Отзывы</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="products">
+            <h2>Наши Продукты</h2>
+            <p>Мы предлагаем стильную и комфортную обувь для каждого.</p>
+            <div class="product-container">
+                <div class="product">
+                    <img src="shoe1.jpg" alt="Шикарные кроссовки">
+                    <h3>Шикарные Кроссовки</h3>
+                    <p>Цена: 4990 руб.</p>
+                </div>
+                <div class="product">
+                    <img src="shoe2.jpg" alt="Спортивная обувь">
+                    <h3>Спортивная Обувь</h3>
+                    <p>Цена: 3990 руб.</p>
+                </div>
+                <div class="product">
+                    <img src="shoe3.jpg" alt="Классические туфли">
+                    <h3>Классические Туфли</h3>
+                    <p>Цена: 5990 руб.</p>
+                </div>
+                <div class="product">
+                    <img src="shoe4.jpg" alt="Сандалии">
+                    <h3>Сандалии</h3>
+                    <p>Цена: 2990 руб.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>О нас</h2>
+            <p>Мы занимаемся продажей качественной обуви, которая подходит как для повседневной носки, так и для занятий спортом. У нас широкий ассортимент и конкурентные цены.</p>
+            <div class="video-container">
+                <iframe src="https://vk.com/video_ext.php?oid=-24977046&id=456241233&hash=3bf08ceb25cff761" width="640" height="360" frameborder="0" allowfullscreen="1" allow="autoplay; encrypted-media; fullscreen; picture-in-picture"></iframe>
+            </div>
+        </section>
+
+        <section id="order">
+            <h2>Заказ Товара</h2>
+            <p>Заполните форму для заказа:</p>
+            <div id="timer">05:00</div>
+            <form action="#" method="post"> 
+                <label for="name">Ваше имя:</label><br>
+                <input type="text" id="name" name="name" required><br><br>
+
+                <label for="email">Ваш Email:</label><br>
+                <input type="email" id="email" name="email" required><br><br>
+
+                <label for="phone">Телефон:</label><br>
+                <input type="tel" id="phone" name="phone" required><br><br>
+
+                <label for="product">Выберите товар:</label><br>
+                <select id="product" name="product" required>
+                    <option value="shoe1">Шикарные Кроссовки - 4990 руб.</option>
+                    <option value="shoe2">Спортивная Обувь - 3990 руб.</option>
+                    <option value="shoe3">Классические Туфли - 5990 руб.</option>
+                    <option value="shoe4">Сандалии - 2990 руб.</option>
+                </select><br><br>
+
+                <input type="submit" value="Отправить заказ">
+            </form>
+        </section>
+
+        <section id="reviews">
+            <h2>Отзывы</h2>
+            <p>Вот что говорят наши клиенты:</p>
+            <ul>
+                <li>
+                    <strong>Иван Петров:</strong> "Шикарные кроссовки, очень удобные! Рекомендую!"<br>
+                    <em>Оценка: 5</em>
+                </li>
+                <li>
+                    <strong>Мария Смирнова:</strong> "Спортивная обувь отличного качества, всем советую!"<br>
+                    <em>Оценка: 4</em>
+                </li>
+                <li>
+                    <strong>Александр Кузнецов:</strong> "Классические туфли очень стильно смотрятся, очень доволен покупкой!"<br>
+                    <em>Оценка: 5</em>
+                </li>
+            </ul>
+            <form action="#" method="post"> 
+                <label for="reviewer-name">Ваше имя:</label><br>
+                <input type="text" id="reviewer-name" name="reviewer-name" required><br><br>
+
+                <label for="review">Ваш отзыв:</label><br>
+                <textarea id="review" name="review" rows="4" required></textarea><br><br>
+
+                <label for="rating">Ваша оценка:</label><br>
+                <select id="rating" name="rating" required>
+                    <option value="5">5 - Отлично</option>
+                    <option value="4">4 - Хорошо</option>
+                    <option value="3">3 - Удовлетворительно</option>
+                    <option value="2">2 - Плохо</option>
+                    <option value="1">1 - Ужасно</option>
+                </select><br><br>
+
+                <input type="submit" value="Отправить отзыв">
+            </form>
+        </section>
+
+        <section id="contact">
+            <h2>Контакты</h2>
+            <p>Свяжитесь с нами:</p>
+            <address>
+                Телефон: <a href="tel:+79990001234">+7 (999) 000-12-34</a><br>
+                Email: <a href="mailto:info@shoe-shop.ru">info@shoe-shop.ru</a><br>
+                Адрес: г. Москва, ул. Обувная, д. 1
+            </address>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Магазин Обуви. Все права защищены.</p>
+    </footer>
+	<a href="url">https://www.aboba/сайт%20н/index.html</a>
+</body>
+</html>
